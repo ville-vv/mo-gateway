@@ -9,9 +9,14 @@ var (
 	conf *Config
 )
 
-func Init() {
-	conf = NewConfig("./conf/config.toml")
-	//conf = NewConfig("")
+func Init(args ...string) *Config {
+	switch len(args) {
+	case 1:
+		conf = NewConfig(args[0])
+	default:
+		conf = NewConfig("./conf/config.toml")
+	}
+	return conf
 }
 
 type ServerCnf struct {
@@ -21,8 +26,9 @@ type ServerCnf struct {
 
 // Config 配置信息，可以是 toml 文件也可以是 json 文件
 type Config struct {
-	Server *ServerCnf     `json:"server"`
-	Mysql  *vsql.MySqlCnf `json:"mysql_cnf"`
+	Server     *ServerCnf     `json:"server"`
+	GrpcServer *ServerCnf     `json:"grpc_server"`
+	Mysql      *vsql.MySqlCnf `json:"mysql_cnf"`
 }
 
 func NewConfig(fileName string) *Config {

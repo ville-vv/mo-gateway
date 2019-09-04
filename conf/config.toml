@@ -2,6 +2,10 @@
 Host=""
 Port="10080"
 
+[GrpcServer]
+Host=""
+Port="10081"
+
 [Mysql]
 Version="5"
 UserName="root"

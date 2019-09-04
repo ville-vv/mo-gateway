@@ -1,4 +1,4 @@
-// Package gin_server 
+// Package gin_server
 package gin_server
 
 import (
@@ -13,7 +13,6 @@ type IRouter interface {
 	Load(*gin.Engine) error
 }
 
-
 type Route struct {
 	gEng      *gin.Engine
 	loadMp    map[string]IRouter
@@ -21,6 +20,7 @@ type Route struct {
 }
 
 func NewRoute() *Route {
+	gin.SetMode(gin.ReleaseMode)
 	r := new(Route)
 	r.gEng = gin.New()
 	r.gEng.Use(gin.Recovery())

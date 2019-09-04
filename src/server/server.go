@@ -47,20 +47,21 @@ func NewServe(args ...IServer) *Serve {
 }
 
 func (sel *Serve) Start(args ...interface{}) {
-	wg := sync.WaitGroup{}
-	wg.Add(1)
-	go func(w *sync.WaitGroup) {
-		wg.Done()
-		for _, v := range sel.serves {
-			vlog.LogI("server [%s] have starting !", v.Name())
-			if err := v.Start(args...); err != nil {
-				panic(err)
-			}
-			vlog.LogI("server [%s] have started !", v.Name())
-		}
-	}(&wg)
 	sgc := make(chan os.Signal, 1)
 	signal.Notify(sgc, os.Interrupt, os.Kill, syscall.SIGQUIT)
+	for _, v := range sel.serves {
+		wg := sync.WaitGroup{}
+		wg.Add(1)
+		vlog.LogI("server [%s] is starting !", v.Name())
+		go func(s IServer, group *sync.WaitGroup) {
+			group.Done()
+			if err := s.Start(args...); err != nil {
+				panic(err)
+			}
+		}(v, &wg)
+		wg.Wait()
+		vlog.LogI("server [%s] start ok !", v.Name())
+	}
 	sg := <-sgc
 	fmt.Println("mo-gateway exit ", sg)
 	return
