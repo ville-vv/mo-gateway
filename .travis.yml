@@ -31,6 +31,6 @@ deploy:
 notifications:
   email:
     recipients:
-      - songwei@mintechai.com
+      - $NOTIFACTION_EMAIL
     on_success: always # default: change
     on_failure: always # default: always
