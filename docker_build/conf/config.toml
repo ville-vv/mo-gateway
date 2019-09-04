@@ -1,0 +1,11 @@
+[Server]
+Host=""
+Port="10080"
+
+[Mysql]
+Version="5"
+UserName="root"
+Password="Root123"
+Address="127.0.0.1:3306"
+Default="information_schema"
+Databases=["vil_user"]
