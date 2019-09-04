@@ -9,7 +9,7 @@ var (
 	conf *Config
 )
 
-func init() {
+func Init() {
 	conf = NewConfig("./conf/config.toml")
 	//conf = NewConfig("")
 }
