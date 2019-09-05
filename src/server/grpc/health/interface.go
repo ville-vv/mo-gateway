@@ -1,6 +1,8 @@
 package health
 
-import "time"
+import (
+	"time"
+)
 
 type Initiator interface {
 	Init() error
@@ -17,12 +19,19 @@ type Accumulator interface {
 
 // Input is the data enter which health checking
 type Input interface {
-	Initiator
+	Label() string
 	Gather(acc Accumulator) error
+}
+
+type ServerInput interface {
+	Input
+	Start(acc Accumulator) error
+	Stop()
 }
 
 // Output is the data exit which health checking
 type Output interface {
-	Initiator
-	Report([]byte) error
+	Connect() error
+	Close()
+	Report(Metric)
 }

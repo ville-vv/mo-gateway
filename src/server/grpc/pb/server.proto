@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package pb;
+
+message Ping{
+    string msg = 1;
+}
+message Pong{
+    int64 val = 1;
+    string msg = 2;
+}
+service MoGateway{
+    rpc DoPing (Ping) returns (Pong);
+}
