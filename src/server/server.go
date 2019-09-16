@@ -1,11 +1,7 @@
 package server
 
 import (
-	"fmt"
-	"os"
-	"os/signal"
 	"sync"
-	"syscall"
 	"vilgo/vlog"
 )
 
@@ -47,10 +43,8 @@ func NewServe(args ...IServer) *Serve {
 }
 
 func (sel *Serve) Start(args ...interface{}) {
-	sgc := make(chan os.Signal, 1)
-	signal.Notify(sgc, os.Interrupt, os.Kill, syscall.SIGQUIT)
+	wg := sync.WaitGroup{}
 	for _, v := range sel.serves {
-		wg := sync.WaitGroup{}
 		wg.Add(1)
 		vlog.LogI("server [%s] is starting !", v.Name())
 		go func(s IServer, group *sync.WaitGroup) {
@@ -59,10 +53,8 @@ func (sel *Serve) Start(args ...interface{}) {
 				panic(err)
 			}
 		}(v, &wg)
-		wg.Wait()
 		vlog.LogI("server [%s] start ok !", v.Name())
 	}
-	sg := <-sgc
-	fmt.Println("mo-gateway exit ", sg)
+	wg.Wait()
 	return
 }

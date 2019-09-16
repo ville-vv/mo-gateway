@@ -1,3 +1,3 @@
 #!/bin/sh
-/go/tstl/tstl &
+/go/mo-gateway/mo-gateway &
 /bin/sh
