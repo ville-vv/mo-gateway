@@ -33,5 +33,5 @@ notifications:
   email:
     recipients:
       - $NOTIFACTION_EMAIL
-    on_success: always # default: change
-    on_failure: always # default: always
+  webhooks:
+      - https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=fc117dc5-c808-4839-bd1a-275eda282bca
