@@ -400,8 +400,8 @@
 		{
 			"checksumSHA1": "KyuNMChzlioP1PgzCz6P54cfsmE=",
 			"path": "vilgo/valid",
-			"revision": "dbe8a2656579d9419fa2a671ba7f06a7da29c839",
-			"revisionTime": "2019-07-24T15:22:12Z"
+			"revision": "93ae2bd2232d38e62058848ddfe75988ebfdf443",
+			"revisionTime": "2019-10-11T10:33:29Z"
 		},
 		{
 			"checksumSHA1": "7Hsc8qtPGIN4305/NN+JhcY51ZM=",
@@ -410,28 +410,22 @@
 			"revisionTime": "2019-10-11T10:33:29Z"
 		},
 		{
-			"checksumSHA1": "wuNw+jUsk0hkwMIK8Dqv7GEbUHk=",
+			"checksumSHA1": "rWOxwxMQoTchD3dJs7NI0i9+E8Q=",
 			"path": "vilgo/vlog",
-			"revision": "dbe8a2656579d9419fa2a671ba7f06a7da29c839",
-			"revisionTime": "2019-07-24T15:22:12Z"
+			"revision": "93ae2bd2232d38e62058848ddfe75988ebfdf443",
+			"revisionTime": "2019-10-11T10:33:29Z"
 		},
 		{
 			"checksumSHA1": "UGzgUBLCPezbqiNJ/oPVS7OX1ls=",
 			"path": "vilgo/vsql",
-			"revision": "dbe8a2656579d9419fa2a671ba7f06a7da29c839",
-			"revisionTime": "2019-07-24T15:22:12Z"
+			"revision": "93ae2bd2232d38e62058848ddfe75988ebfdf443",
+			"revisionTime": "2019-10-11T10:33:29Z"
 		},
 		{
-			"checksumSHA1": "qMTWq+AX594Mw2ZsSMNbsgkoUSU=",
+			"checksumSHA1": "rHXoU8GNjuUZLvHICmBGl68iosQ=",
 			"path": "vilgo/vuid",
-			"revision": "dbe8a2656579d9419fa2a671ba7f06a7da29c839",
-			"revisionTime": "2019-07-24T15:22:12Z"
-		},
-		{
-			"checksumSHA1": "R5y25k87K5EFzw3+zMi1RoA4+a8=",
-			"path": "vilgo/vutil",
-			"revision": "dbe8a2656579d9419fa2a671ba7f06a7da29c839",
-			"revisionTime": "2019-07-24T15:22:12Z"
+			"revision": "93ae2bd2232d38e62058848ddfe75988ebfdf443",
+			"revisionTime": "2019-10-11T10:33:29Z"
 		}
 	],
 	"rootPath": "mo-gateway"

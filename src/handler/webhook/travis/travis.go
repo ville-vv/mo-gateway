@@ -6,6 +6,7 @@ package travis
 
 import (
 	"bytes"
+	"crypto/tls"
 	"io/ioutil"
 	"net/http"
 	"strings"
@@ -25,6 +26,12 @@ var weChatHookTeamplate = `
     }
 }
 `
+var cli = http.Client{
+	Transport: &http.Transport{
+		//跳过证书验证
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	},
+}
 
 func TraivsWeChat(title, state, who, event string) (err error) {
 	tmpl := template.New("")
@@ -40,9 +47,13 @@ func TraivsWeChat(title, state, who, event string) (err error) {
 		vlog.ERROR("创建模板失败：")
 		return
 	}
-	resp, err := http.Post("http://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=02dd2384-04ae-426f-a85b-3b7884d0cfbe",
-		"application/json",
-		msgBuf)
+
+	reqHttp, err := http.NewRequest("POST", "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=02dd2384-04ae-426f-a85b-3b7884d0cfbe", msgBuf)
+	if err != nil {
+		vlog.ERROR("创建HTTP请求失败：%s", err.Error())
+	}
+	reqHttp.Header.Set("Content-Type", "application/json")
+	resp, err := cli.Do(reqHttp)
 	if err != nil {
 		vlog.ERROR("请求微信机器人失败：%s", err.Error())
 		return
