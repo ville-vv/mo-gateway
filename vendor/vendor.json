@@ -105,6 +105,18 @@
 			"revisionTime": "2016-03-15T20:05:05Z"
 		},
 		{
+			"checksumSHA1": "DzJTcLyIOulgpbc2PEX0avYrlhc=",
+			"path": "github.com/tidwall/gjson",
+			"revision": "9ed3f8e1a5d67a79157423b8d6f448d42b907f36",
+			"revisionTime": "2018-03-01T18:15:57Z"
+		},
+		{
+			"checksumSHA1": "Tk+aXpWRuTQhURlO79bd7YogcU0=",
+			"path": "github.com/tidwall/match",
+			"revision": "1731857f09b1f38450e2c12409748407822dc6be",
+			"revisionTime": "2017-10-02T07:59:45Z"
+		},
+		{
 			"checksumSHA1": "qFs0grHlbWDk8I7+1+wWvHfmWxA=",
 			"path": "go.uber.org/atomic",
 			"revision": "5328d69c76a98d1d21c773653a5a78fa28d89921",
@@ -390,6 +402,12 @@
 			"path": "vilgo/valid",
 			"revision": "dbe8a2656579d9419fa2a671ba7f06a7da29c839",
 			"revisionTime": "2019-07-24T15:22:12Z"
+		},
+		{
+			"checksumSHA1": "7Hsc8qtPGIN4305/NN+JhcY51ZM=",
+			"path": "vilgo/vfile",
+			"revision": "93ae2bd2232d38e62058848ddfe75988ebfdf443",
+			"revisionTime": "2019-10-11T10:33:29Z"
 		},
 		{
 			"checksumSHA1": "wuNw+jUsk0hkwMIK8Dqv7GEbUHk=",
