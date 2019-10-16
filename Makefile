@@ -34,9 +34,9 @@ docker-build: docker-read
 	sudo docker build -t $(PROJECTNAME) $(DOCKER_BUILD)
 
 docker_stop:
-	sudo docker stop $(sudo docker container ls -a | grep "tstl" | awk '{print $1}')
+	sudo docker stop $(sudo docker container ls -a | grep "mo-gateway" | awk '{print $1}')
 docker_rm:
-	sudo docker rm $(sudo docker container ls -a | grep "tstl" | awk '{print $1}')
+	sudo docker rm $(sudo docker container ls -a | grep "mo-gateway" | awk '{print $1}')
 docker_rmi:
 	sudo docker rmi $(sudo docker images | grep "none" | awk '{print $3}')
 

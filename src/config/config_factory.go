@@ -2,7 +2,7 @@ package config
 
 import (
 	"strings"
-	"vilgo/vutil"
+	"vilgo/vfile"
 )
 
 const (
@@ -67,7 +67,7 @@ func (f *FactoryConfig) GetType(origin string) string {
 	}
 
 	// 判断是否文件存在,存在默认使用 toml
-	if in := vutil.PathExists(origin); in {
+	if in := vfile.PathExists(origin); in {
 		return OriginTypeConfigToml
 	}
 	return OriginTypeConfigDef

@@ -14,7 +14,7 @@ type GinServer struct {
 
 func NewGinServer(cfg *config.Config) *GinServer {
 	g := new(GinServer)
-	g.name = reflect.TypeOf(g).String()
+	g.name = reflect.TypeOf(g).Elem().Name()
 	g.addr = fmt.Sprintf("%s:%s", cfg.Server.Host, cfg.Server.Port)
 	return g
 }
@@ -26,6 +26,8 @@ func (g *GinServer) Name() string {
 func (g *GinServer) Start(args ...interface{}) error {
 	r := NewRoute()
 	r.Use(&UserRouterModel{})
+	r.Use(&WebHookRouter{})
+	r.RequestLog()
 	r.ResponseLog()
 	return r.Start(g.addr)
 }

@@ -2,9 +2,10 @@ language: go
 
 go:
   - 1.12.x
+go_import_path: ray-seep
 
 before_install:
-  - mv ../$(basename $(pwd)) $GOPATH/src
+#  - mv ../$(basename $(pwd)) $GOPATH/src
   - go get -v github.com/json-iterator/go
   - go get -v google.golang.org/grpc
 
@@ -34,4 +35,4 @@ notifications:
     recipients:
       - $NOTIFACTION_EMAIL
   webhooks:
-      - https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=fc117dc5-c808-4839-bd1a-275eda282bca
+      - $WEBHOOK

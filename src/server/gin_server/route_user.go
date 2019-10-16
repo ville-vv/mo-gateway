@@ -9,7 +9,7 @@ import (
 	"net/http"
 )
 
-type UserHandlerFun func([]byte) (interface{}, errmsg.ErrCode)
+type HandlerFun func([]byte) (interface{}, errmsg.ErrCode)
 
 type UserRouterModel struct {
 	UserRouteCmd
@@ -54,7 +54,7 @@ func (sel *UserRouteCmd) CallBack(ctx *gin.Context) {
 type BackDataOk struct {
 	Status int         `json:"status"`
 	Data   interface{} `json:"data"`
-	ErrMsg string `json:"err_msg,omitempty"`
+	ErrMsg string      `json:"err_msg,omitempty"`
 }
 
 func Back200(ctx *gin.Context, body interface{}) {
@@ -65,7 +65,7 @@ func BackError(ctx *gin.Context, code errmsg.ErrCode) {
 	ctx.JSON(http.StatusOK, &BackDataOk{Status: int(code), ErrMsg: code.Error()})
 }
 
-func GetSayBack(ctx *gin.Context, hf UserHandlerFun) {
+func GetSayBack(ctx *gin.Context, hf HandlerFun) {
 	gd := ctx.Request.URL.Query()
 	data, err := jsoniter.Marshal(gd)
 	if err != nil {
@@ -75,7 +75,7 @@ func GetSayBack(ctx *gin.Context, hf UserHandlerFun) {
 	sayBack(ctx, data, hf)
 }
 
-func PostSayBack(ctx *gin.Context, hf UserHandlerFun) {
+func PostSayBack(ctx *gin.Context, hf HandlerFun) {
 	defer ctx.Request.Body.Close()
 	body, err := ioutil.ReadAll(ctx.Request.Body)
 	if err != nil {
@@ -86,7 +86,7 @@ func PostSayBack(ctx *gin.Context, hf UserHandlerFun) {
 	return
 }
 
-func sayBack(ctx *gin.Context, req []byte, hf UserHandlerFun) {
+func sayBack(ctx *gin.Context, req []byte, hf HandlerFun) {
 	resp, code := hf(req)
 	if code != 0 {
 		BackError(ctx, code)

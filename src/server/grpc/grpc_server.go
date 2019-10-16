@@ -19,7 +19,7 @@ type GrpcServer struct {
 
 func NewGrpcServer(cfg *config.Config) *GrpcServer {
 	g := &GrpcServer{}
-	g.name = reflect.TypeOf(g).String()
+	g.name = reflect.TypeOf(g).Elem().String()
 	g.addr = fmt.Sprintf("%s:%s", cfg.GrpcServer.Host, cfg.GrpcServer.Port)
 	return g
 }
