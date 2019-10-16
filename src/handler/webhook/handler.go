@@ -35,12 +35,19 @@ func (sel *Handler) TravisPost(body []byte, args ...interface{}) (interface{}, e
 	if repository.Raw != "" {
 		title = repository.Get("name").String()
 	}
-	return "success", travis.TraivsWeChat(
-		title,
-		result.Get("state").String(),
-		result.Get("committer_email").String(),
-		result.Get("type").String(),
-	)
+	return "success", travis.TravisWeChat(map[string]string{
+		"Title":title,
+		"ID":result.Get("id").String(),
+		"Number":result.Get("number").String(),
+		"Name":result.Get("committer_name").String(),
+		"Email":result.Get("committer_email").String(),
+		"Type":result.Get("type").String(),
+		"State":result.Get("state").String(),
+		"Start":result.Get("started_at").String(),
+		"End":result.Get("finished_at").String(),
+		"Branch":result.Get("branch").String(),
+		"Message":result.Get("message").String(),
+	})
 }
 func (sel *Handler) TravisGet(map[string][]string, ...interface{}) (interface{}, error) {
 	return nil, nil

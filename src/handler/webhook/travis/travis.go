@@ -19,9 +19,16 @@ var weChatHookTeamplate = `
     "msgtype": "markdown",
     "markdown": {
         "content": "#### {{.Title}}\n
-提  交  人：<font color=comment>{{.Who}}</font>
-事件类型：<font color=comment>{{.Event}}</font>
-状    态：<font color={{.Color}}>{{.State}}</font>
+ID：<font color=comment>{{.ID}}</font>
+Number：<font color=comment>{{.Number}}</font>
+Name：<font color=comment>{{.Name}}</font>
+Email：<font color=comment>{{.Email}}</font>
+Type：<font color=comment>{{.Type}}</font>
+State：<font color={{.color}}>{{.State}}</font>
+Start：<font color=comment>{{.StartTime}}</font>
+End：<font color=comment>{{.EndTime}}</font>
+Branch：<font color=comment>{{.Branch}}</font>
+Message：<font color=comment>{{.Message}}</font>
         "
     }
 }
@@ -33,17 +40,18 @@ var cli = http.Client{
 	},
 }
 
-func TraivsWeChat(title, state, who, event string) (err error) {
+func TravisWeChat(params map[string]string) (err error) {
 	tmpl := template.New("")
 	tmpl.Parse(weChatHookTeamplate)
-
+	state := params["State"]
 	color := "green"
 	if strings.ToLower(state) != "passed" {
 		color = "red"
 	}
+	params["color"] = color
 	msgBuf := bytes.NewBufferString("")
 	// 执行模板字段替换
-	if err = tmpl.Execute(msgBuf, map[string]string{"Title": title, "Who": who, "Event": event, "Color": color, "State": state}); err != nil {
+	if err = tmpl.Execute(msgBuf, params); err != nil {
 		vlog.ERROR("创建模板失败：")
 		return
 	}
