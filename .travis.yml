@@ -35,4 +35,4 @@ notifications:
     recipients:
       - $NOTIFACTION_EMAIL
   webhooks:
-      - $MYWEBHOOKURL
+      - http://www.villeboss.com:10081/api/webhook/travis
