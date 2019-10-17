@@ -35,4 +35,4 @@ notifications:
     recipients:
       - $NOTIFACTION_EMAIL
   webhooks:
-      - $WEBHOOK
+      - $MYWEBHOOKURL

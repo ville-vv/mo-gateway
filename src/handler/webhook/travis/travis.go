@@ -18,21 +18,41 @@ var weChatHookTeamplate = `
 {
     "msgtype": "markdown",
     "markdown": {
-        "content": "#### {{.Title}}\n
-ID：<font color=comment>{{.ID}}</font>
-Number：<font color=comment>{{.Number}}</font>
-Name：<font color=comment>{{.Name}}</font>
-Email：<font color=comment>{{.Email}}</font>
-Type：<font color=comment>{{.Type}}</font>
+        "content": "### {{.Title}}  
 State：<font color={{.color}}>{{.State}}</font>
+Name：<font color=blue>{{.Name}}</font>
+Email：<font color=blue>{{.Email}}</font>
+ID：<font color=comment>{{.ID}}</font>
+Number：<font color=warning>{{.Number}}</font>
+Type：<font color=warning>{{.Type}}</font>
 Start：<font color=comment>{{.StartTime}}</font>
 End：<font color=comment>{{.EndTime}}</font>
 Branch：<font color=comment>{{.Branch}}</font>
 Message：<font color=comment>{{.Message}}</font>
+Commit:<font color=comment>{{.Commit}}</font>
         "
     }
 }
 `
+
+// http://hbimg.b0.upaiyun.com/828e72e2855b51a005732f4e007c58c92417a61e1bcb1-61VzNc_fw658
+var weChatNoticTemplatePic = `
+{
+    "msgtype": "news",
+    "news": {
+       "articles" : [
+			{
+               "title" : "{{.Title}}",
+               "description" : "{{.Message}}",
+               "url" : "URL",
+               "picurl" : "http://b-ssl.duitang.com/uploads/item/201808/27/20180827043223_twunu.jpg"
+           	}
+        ]
+    }
+}
+
+`
+
 var cli = http.Client{
 	Transport: &http.Transport{
 		//跳过证书验证
@@ -55,7 +75,7 @@ func TravisWeChat(params map[string]string) (err error) {
 		vlog.ERROR("创建模板失败：")
 		return
 	}
-
+	// fmt.Println(string(msgBuf.String()))
 	reqHttp, err := http.NewRequest("POST", "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=02dd2384-04ae-426f-a85b-3b7884d0cfbe", msgBuf)
 	if err != nil {
 		vlog.ERROR("创建HTTP请求失败：%s", err.Error())

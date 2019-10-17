@@ -36,17 +36,18 @@ func (sel *Handler) TravisPost(body []byte, args ...interface{}) (interface{}, e
 		title = repository.Get("name").String()
 	}
 	return "success", travis.TravisWeChat(map[string]string{
-		"Title":title,
-		"ID":result.Get("id").String(),
-		"Number":result.Get("number").String(),
-		"Name":result.Get("committer_name").String(),
-		"Email":result.Get("committer_email").String(),
-		"Type":result.Get("type").String(),
-		"State":result.Get("state").String(),
-		"Start":result.Get("started_at").String(),
-		"End":result.Get("finished_at").String(),
-		"Branch":result.Get("branch").String(),
-		"Message":result.Get("message").String(),
+		"Title":     title,
+		"ID":        result.Get("id").String(),
+		"Number":    result.Get("number").String(),
+		"Name":      result.Get("committer_name").String(),
+		"Email":     result.Get("committer_email").String(),
+		"Type":      result.Get("type").String(),
+		"State":     result.Get("state").String(),
+		"StartTime": result.Get("started_at").String(),
+		"EndTime":   result.Get("finished_at").String(),
+		"Branch":    result.Get("branch").String(),
+		"Message":   result.Get("message").String(),
+		"Commit":    result.Get("commit").String(),
 	})
 }
 func (sel *Handler) TravisGet(map[string][]string, ...interface{}) (interface{}, error) {
