@@ -5,7 +5,6 @@ go:
 go_import_path: mo-gateway
 
 before_install:
-#  - mv ../$(basename $(pwd)) $GOPATH/src
   - go get -v github.com/json-iterator/go
   - go get -v google.golang.org/grpc
 
@@ -35,4 +34,5 @@ notifications:
     recipients:
       - $NOTIFACTION_EMAIL
   webhooks:
+    urls:
       - $MYWEBHOOKURL
