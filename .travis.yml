@@ -12,10 +12,10 @@ install: true
 
 script:
   - make test
+
+before_deploy:
   - make build
   - make docker-read
-  
-before_deploy:
   - tar -zcf docker_build.tar.gz docker_build
 
 deploy:
