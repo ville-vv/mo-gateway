@@ -2,6 +2,7 @@ package config
 
 import (
 	"fmt"
+	"sync"
 	"vilgo/vsql"
 )
 
@@ -10,12 +11,14 @@ var (
 )
 
 func Init(args ...string) *Config {
-	switch len(args) {
-	case 1:
-		conf = NewConfig(args[0])
-	default:
-		conf = NewConfig("./conf/config.toml")
-	}
+	(&sync.Once{}).Do(func() {
+		switch len(args) {
+		case 1:
+			conf = NewConfig(args[0])
+		default:
+			conf = NewConfig("./conf/config.toml")
+		}
+	})
 	return conf
 }
 

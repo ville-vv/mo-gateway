@@ -12,20 +12,18 @@ import (
 	"vilgo/vlog"
 )
 
-func main() {
+func WaitSignal() {
 	sgc := make(chan os.Signal, 1)
 	signal.Notify(sgc, os.Interrupt, os.Kill, syscall.SIGQUIT)
+	sg := <-sgc
+	fmt.Println("exit ", sg)
+}
+
+func main() {
 	cfg := config.Init()
 	vlog.DefaultLogger("info.log")
-	//if err := server.Init(&mysql.MySqlServe{}); err != nil {
-	//	vlog.LogE("service init fail %v", err)
-	//	sg := <-sgc
-	//	fmt.Println("mo-gateway exit ", sg)
-	//	os.Exit(-1)
-	//}
 	s := server.NewServe(gin_server.NewGinServer(cfg), grpc.NewGrpcServer(cfg))
 	s.Start()
 	fmt.Println("mo-gateway start ok ")
-	sg := <-sgc
-	fmt.Println("mo-gateway exit ", sg)
+	WaitSignal()
 }
