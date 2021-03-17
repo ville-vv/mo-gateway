@@ -2,9 +2,9 @@ package gin_server
 
 import (
 	"fmt"
-	"mo-gateway/src/config"
+	"github.com/ville-vv/mo-gateway/src/config"
+	"github.com/ville-vv/vilgo/vlog"
 	"reflect"
-	"vilgo/vlog"
 )
 
 type GinServer struct {

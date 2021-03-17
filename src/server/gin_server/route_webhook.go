@@ -6,9 +6,9 @@ package gin_server
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/ville-vv/mo-gateway/src/control/errmsg"
+	"github.com/ville-vv/mo-gateway/src/handler/webhook"
 	"io/ioutil"
-	"mo-gateway/src/control/errmsg"
-	"mo-gateway/src/handler/webhook"
 	"net/http"
 )
 

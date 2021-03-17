@@ -1,3 +1,3 @@
 #!/bin/sh
-/go/mo-gateway/mo-gateway &
+/go/github.com/ville-vv/mo-gateway/mo-gateway &
 /bin/sh

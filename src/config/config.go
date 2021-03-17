@@ -2,8 +2,8 @@ package config
 
 import (
 	"fmt"
+	"github.com/ville-vv/vilgo/vsql"
 	"sync"
-	"vilgo/vsql"
 )
 
 var (

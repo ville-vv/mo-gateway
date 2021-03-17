@@ -2,14 +2,14 @@ package main
 
 import (
 	"fmt"
-	"mo-gateway/src/config"
-	"mo-gateway/src/server"
-	"mo-gateway/src/server/gin_server"
-	"mo-gateway/src/server/grpc"
+	"github.com/ville-vv/mo-gateway/src/config"
+	"github.com/ville-vv/mo-gateway/src/server"
+	"github.com/ville-vv/mo-gateway/src/server/gin_server"
+	"github.com/ville-vv/mo-gateway/src/server/grpc"
+	"github.com/ville-vv/vilgo/vlog"
 	"os"
 	"os/signal"
 	"syscall"
-	"vilgo/vlog"
 )
 
 func WaitSignal() {

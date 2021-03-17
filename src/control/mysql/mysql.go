@@ -4,9 +4,9 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
-	"mo-gateway/src/config"
-	"vilgo/vlog"
-	"vilgo/vsql"
+	"github.com/ville-vv/mo-gateway/src/config"
+	"github.com/ville-vv/vilgo/vlog"
+	"github.com/ville-vv/vilgo/vsql"
 )
 
 var (
@@ -14,7 +14,7 @@ var (
 )
 
 //
-type MySqlServe struct{
+type MySqlServe struct {
 	gblSql *vsql.NormalSqlDrive
 }
 
@@ -92,7 +92,7 @@ func (*MySqlServe) createAllTable(db *sql.DB) error {
 	return nil
 }
 
-func (sel *MySqlServe)GetDb()*sql.DB{
+func (sel *MySqlServe) GetDb() *sql.DB {
 	return sel.gblSql.GetDb(config.GetDbName())
 }
 

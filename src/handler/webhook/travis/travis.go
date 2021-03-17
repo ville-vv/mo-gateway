@@ -7,11 +7,11 @@ package travis
 import (
 	"bytes"
 	"crypto/tls"
+	"github.com/ville-vv/vilgo/vlog"
 	"io/ioutil"
 	"net/http"
 	"strings"
 	"text/template"
-	"vilgo/vlog"
 )
 
 var weChatHookTeamplate = `

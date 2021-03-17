@@ -1,9 +1,9 @@
 package config
 
 import (
+	"github.com/ville-vv/vilgo/vsql"
 	"io/ioutil"
 	"os"
-	"vilgo/vsql"
 )
 
 type CnfWriter interface {

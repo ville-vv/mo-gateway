@@ -1,9 +1,9 @@
 package user
 
 import (
+	"github.com/ville-vv/vilgo/valid"
+	"github.com/ville-vv/vilgo/vlog"
 	"testing"
-	"vilgo/valid"
-	"vilgo/vlog"
 )
 
 func TestLogin_GenToken(t *testing.T) {
@@ -19,6 +19,6 @@ func BenchmarkLogin_GenToken(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		lg.GenToken()
 	}
-	
+
 	//
 }

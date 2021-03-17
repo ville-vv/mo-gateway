@@ -4,7 +4,7 @@ WORKDIR /go/mo-gateway
 
 ADD . ./
 
-RUN chmod +x /go/mo-gateway/start.sh
+RUN chmod +x /go/github.com/ville-vv/mo-gateway/start.sh
 
 EXPOSE 10080
 

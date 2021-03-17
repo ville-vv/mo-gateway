@@ -3,9 +3,9 @@ package gin_server
 import (
 	"github.com/gin-gonic/gin"
 	jsoniter "github.com/json-iterator/go"
+	"github.com/ville-vv/mo-gateway/src/control/errmsg"
+	"github.com/ville-vv/mo-gateway/src/handler/user"
 	"io/ioutil"
-	"mo-gateway/src/control/errmsg"
-	"mo-gateway/src/handler/user"
 	"net/http"
 )
 

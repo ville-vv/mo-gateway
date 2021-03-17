@@ -4,9 +4,9 @@ package gin_server
 import (
 	"bytes"
 	"github.com/gin-gonic/gin"
+	"github.com/ville-vv/vilgo/vlog"
 	"io/ioutil"
 	"reflect"
-	"vilgo/vlog"
 )
 
 type IRouter interface {

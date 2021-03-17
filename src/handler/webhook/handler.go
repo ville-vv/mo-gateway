@@ -6,10 +6,10 @@ package webhook
 
 import (
 	"github.com/tidwall/gjson"
-	"mo-gateway/src/handler/webhook/travis"
+	"github.com/ville-vv/mo-gateway/src/handler/webhook/travis"
+	"github.com/ville-vv/vilgo/vlog"
 	"net/url"
 	"strings"
-	"vilgo/vlog"
 )
 
 type Handler struct {

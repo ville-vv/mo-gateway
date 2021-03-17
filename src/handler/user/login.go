@@ -1,11 +1,11 @@
 package user
 
 import (
-	"vilgo/valid"
+	"github.com/ville-vv/vilgo/valid"
 )
 
 type Login struct {
-	tokenVerify  valid.Validator
+	tokenVerify valid.Validator
 }
 
 func (sel *Login) GenToken() string {

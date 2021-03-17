@@ -3,11 +3,11 @@ package grpc
 import (
 	"context"
 	"fmt"
+	"github.com/ville-vv/mo-gateway/src/config"
+	"github.com/ville-vv/mo-gateway/src/server/grpc/pb"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/health"
 	healthpb "google.golang.org/grpc/health/grpc_health_v1"
-	"mo-gateway/src/config"
-	"mo-gateway/src/server/grpc/pb"
 	"net"
 	"reflect"
 )

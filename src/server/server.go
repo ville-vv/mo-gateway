@@ -1,8 +1,8 @@
 package server
 
 import (
+	"github.com/ville-vv/vilgo/vlog"
 	"sync"
-	"vilgo/vlog"
 )
 
 type Initializer interface {

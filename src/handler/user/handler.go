@@ -2,9 +2,9 @@ package user
 
 import (
 	"github.com/json-iterator/go"
-	"mo-gateway/src/control/errmsg"
-	"vilgo/vlog"
-	"vilgo/vuid"
+	"github.com/ville-vv/mo-gateway/src/control/errmsg"
+	"github.com/ville-vv/vilgo/vlog"
+	"github.com/ville-vv/vilgo/vuid"
 )
 
 // Handler 业务处理模块接口

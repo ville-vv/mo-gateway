@@ -1,8 +1,8 @@
 package config
 
 import (
+	"github.com/ville-vv/vilgo/vfile"
 	"strings"
-	"vilgo/vfile"
 )
 
 const (
